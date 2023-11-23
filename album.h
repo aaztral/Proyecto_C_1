@@ -1,46 +1,32 @@
 #include <string>
+#include "ranking.h"
 
 using namespace std;
 
-class Album{
-private:
-    std::string title;  
+class Album: public Rank{
+private:  
     int lenght;
-    std::string genre;
     std::string author;
     
-
 public:
-    Album(): title(""), lenght(0), genre(""), author(""){};
-    Album(std::string ti, int len, std::string gen, std::string aut): title(ti), lenght(len), genre(gen), author(aut){};
+    Album(): lenght(0), author(""), Rank(){};
+    Album(std::string nam, int ye, std::string gen, int ran, int len, std::string aut): lenght(len), author(aut), Rank(nam, ye, gen, ran){};
     
     // Obtener las variables
-    std::string get_title();
     int get_lenght();
-    std::string get_genre();
     std::string get_author();
     
     // Definir las variables
-    void set_title(std::string);
     void set_lenght(int);
-    void set_genre(std::string);
     void set_author(std::string);
-    
-    
+    void new_ranking();
     
 };
 
 // Getters
-std::string Album::get_title(){
-    return title;
-}
 
 int Album::get_lenght(){
     return lenght;
-}
-
-std::string Album::get_genre(){
-    return genre;
 }
 
 std::string Album::get_author(){
@@ -48,20 +34,36 @@ std::string Album::get_author(){
 }
 
 
-
 // Setters
-void Album::set_title(std::string ti){
-    title = ti;
-}
 
 void Album::set_lenght(int len){
     lenght = len;
 }
 
-void Album::set_genre(std::string gen){
-    genre = gen;
-}
-
 void Album::set_author(std::string aut){
     author = aut;
+}
+
+void Album::new_ranking(){
+    std::string nam;
+    int ye;
+    std::string gen;
+    int ran;
+
+    cout << "Nombre del Álbum:";
+    cin >> nam;
+    Album::set_name(nam);
+
+    cout << "Año de publicación:";
+    cin >> ye;
+    Album::set_year(ye);
+
+    cout << "Genero del Álbum:";
+    cin >> gen;
+    Album::set_genre(gen);
+
+    cout << "¿Que ranking le das a tu álbum?(1-5):";
+    cin >> ran;
+    Album::set_rank(ran);
+
 }

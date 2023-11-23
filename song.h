@@ -1,46 +1,32 @@
 #include <string>
+#include "ranking.h"
 
 using namespace std;
 
-class Song{
-private:
-    std::string title;  
-    int year;
-    std::string genre;
+class Song: public Rank{
+private:  
+    int lenght;
     std::string author;
     
-
 public:
-    Song(): title(""), year(0), genre(""), author(""){};
-    Song(std::string ti, int ye, std::string gen, std::string aut): title(ti), year(ye), genre(gen), author(aut){};
+    Song(): lenght(0), author(""), Rank(){};
+    Song(std::string nam, int ye, std::string gen, int ran, int len, std::string aut): lenght(len), author(aut), Rank(nam, ye, gen, ran){};
     
     // Obtener las variables
-    std::string get_title();
-    int get_year();
-    std::string get_genre();
+    int get_lenght();
     std::string get_author();
     
     // Definir las variables
-    void set_title(std::string);
-    void set_year(int);
-    void set_genre(std::string);
+    void set_lenght(int);
     void set_author(std::string);
-    
-    
+    void new_ranking();
     
 };
 
 // Getters
-std::string Song::get_title(){
-    return title;
-}
 
-int Song::get_year(){
-    return year;
-}
-
-std::string Song::get_genre(){
-    return genre;
+int Song::get_lenght(){
+    return lenght;
 }
 
 std::string Song::get_author(){
@@ -48,21 +34,36 @@ std::string Song::get_author(){
 }
 
 
-
 // Setters
-void Song::set_title(std::string ti){
-    title = ti;
-}
 
-void Song::set_year(int len){
-    year = len;
-}
-
-void Song::set_genre(std::string gen){
-    genre = gen;
+void Song::set_lenght(int len){
+    lenght = len;
 }
 
 void Song::set_author(std::string aut){
     author = aut;
 }
 
+void Song::new_ranking(){
+    std::string nam;
+    int ye;
+    std::string gen;
+    int ran;
+
+    cout << "Nombre de la Canción:";
+    cin >> nam;
+    Song::set_name(nam);
+
+    cout << "Año de publicación:";
+    cin >> ye;
+    Song::set_year(ye);
+
+    cout << "Genero de la Canción:";
+    cin >> gen;
+    Song::set_genre(gen);
+
+    cout << "¿Que ranking le das a tu canción?(1-5):";
+    cin >> ran;
+    Song::set_rank(ran);
+
+}

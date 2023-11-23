@@ -1,46 +1,32 @@
 #include <string>
+#include "ranking.h"
 
 using namespace std;
 
-class Artist{
-private:
-    std::string name;  
+class Artist: public Rank{
+private:  
     int age;
-    std::string genre;
     std::string language;
     
-
 public:
-    Artist(): name(""), age(0), genre(""), language(""){};
-    Artist(std::string na, int ag, std::string gen, std::string lan): name(na), age(ag), genre(gen), language(lan){};
+    Artist(): age(0), language(""), Rank(){};
+    Artist(std::string nam, int ye, std::string gen, int ran, int ag, std::string lan): age(ag), language(lan), Rank(nam, ye, gen, ran){};
     
     // Obtener las variables
-    std::string get_name();
     int get_age();
-    std::string get_genre();
     std::string get_language();
     
     // Definir las variables
-    void set_name(std::string);
     void set_age(int);
-    void set_genre(std::string);
     void set_language(std::string);
-    
-    
+    void new_ranking();
     
 };
 
 // Getters
-std::string Artist::get_name(){
-    return name;
-}
 
 int Artist::get_age(){
     return age;
-}
-
-std::string Artist::get_genre(){
-    return genre;
 }
 
 std::string Artist::get_language(){
@@ -48,20 +34,36 @@ std::string Artist::get_language(){
 }
 
 
-
 // Setters
-void Artist::set_name(std::string na){
-    name = na;
-}
 
 void Artist::set_age(int ag){
     age = ag;
 }
 
-void Artist::set_genre(std::string gen){
-    genre = gen;
-}
-
 void Artist::set_language(std::string lan){
     language = lan;
+}
+
+void Artist::new_ranking(){
+    std::string nam;
+    int ye;
+    std::string gen;
+    int ran;
+
+    cout << "Nombre del Artista:";
+    cin >> nam;
+    Artist::set_name(nam);
+
+    cout << "Año de Nacimiento:";
+    cin >> ye;
+    Artist::set_year(ye);
+
+    cout << "Genero del Artista:";
+    cin >> gen;
+    Artist::set_genre(gen);
+
+    cout << "¿Que ranking le das a tu artista?(1-5):";
+    cin >> ran;
+    Artist::set_rank(ran);
+
 }
