@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
 
+#ifndef RANKING_H_
+#define RANKING_H_
+
 using namespace std;
 
 class Rank{
@@ -23,7 +26,6 @@ public:
     void set_year(int);
     void set_genre(std::string);
     void set_rank(int); 
-
 };
 
 std::string Rank::get_name(){
@@ -58,3 +60,4 @@ void Rank::set_rank(int ran){
     rank = ran;
 }
 
+#endif

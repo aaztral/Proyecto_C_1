@@ -1,6 +1,9 @@
 #include <string>
 #include "ranking.h"
 
+#ifndef SONG_H_
+#define SONG_H_
+
 using namespace std;
 
 class Song: public Rank{
@@ -19,7 +22,7 @@ public:
     // Definir las variables
     void set_lenght(int);
     void set_author(std::string);
-    void new_ranking();
+    void new_song();
     
 };
 
@@ -44,26 +47,37 @@ void Song::set_author(std::string aut){
     author = aut;
 }
 
-void Song::new_ranking(){
+void Song::new_song(){
     std::string nam;
     int ye;
     std::string gen;
     int ran;
+    int len;
+    std::string aut;
 
-    cout << "Nombre de la Canción:";
+    cout << "Nombre de la Canción: ";
     cin >> nam;
     Song::set_name(nam);
 
-    cout << "Año de publicación:";
+    cout << "Año de publicación: ";
     cin >> ye;
     Song::set_year(ye);
 
-    cout << "Genero de la Canción:";
+    cout << "Genero de la Canción: ";
     cin >> gen;
     Song::set_genre(gen);
 
-    cout << "¿Que ranking le das a tu canción?(1-5):";
+    cout << "Duración de la Canción (min): ";
+    cin >> len;
+    Song::set_lenght(len);
+
+    cout << "Autor de la canción ";
+    cin >> aut;
+    Song::set_author(aut);
+
+    cout << "¿Que ranking le das a tu canción?(1-5): ";
     cin >> ran;
     Song::set_rank(ran);
 
 }
+#endif 

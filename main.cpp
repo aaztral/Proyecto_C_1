@@ -1,40 +1,52 @@
+
 #include <iostream>
 #include <string>
-#include "album.h"
-#include "song.h"
-#include "artist.h"
+#include <limits>
+#include "music.h"
 
 using namespace std;
 
-int main()
-{
-    Album album_1("The Dark Side Of The Moon", 42, "Psych Rock", "Pink Floyd");
-    
-    std::cout << "Titulo del álbum: " << album_1.get_title() << '\n';
-    std::cout << "Este álbum dura: " << album_1.get_lenght() << "min" << '\n';
-    std::cout << "Este álbum es considerado del género: " << album_1.get_genre() << '\n';
-    std::cout << "Este álbum es de: " << album_1.get_author() << '\n';
-    std::cout << '\n';
+void menu (){
+    cout << "----------------" << endl;
+    cout << "Recommend Music." << endl;
+    cout << "----------------" << endl;
+    cout << "¿Qué quieres hacer?" << endl;
+    cout << "1. Rankear nueva música." << endl;
+    cout << "2. Salir." << endl;
+}
 
-    Song song_1("Dreams", 1977, "Soft Rock", "Fleetwood Mac");
-    
-    std::cout << "Titulo de la canción: " << song_1.get_title() << '\n';
-    std::cout << "Este canción fue publicada en: " << song_1.get_year() << '\n';
-    std::cout << "Esta canción es considerada del género: " << song_1.get_genre() << '\n';
-    std::cout << "Esta canción es de: " << song_1.get_author() << '\n';
-    std::cout << '\n';
+int main(){
+    Music music;
+    bool continua = true;
+    int option;
 
-    Artist artist_1("Taylor Swift", 33, "Pop", "Inglés");
-    
-    std::cout << "Nombre del artista: " << artist_1.get_name() << '\n';
-    std::cout << "Este artista tiene: " << artist_1.get_age() << "años" << '\n';
-    std::cout << "Este artista crea musica del género: " << artist_1.get_genre() << '\n';
-    std::cout << "Este artista canta en el idioma: " << artist_1.get_language() << '\n';
-    std::cout << '\n';
+    while (continua) {
+        menu();
+        cout << "Escoge lo que quieres hacer (1 - 4): ";
+
+        // Check for valid input
+        if (cin >> option) {
+            cout << endl;
+
+            if (option == 1) {
+                music.new_ranking(); 
+            } 
+            else if (option == 2) {
+                cout << "¡Nos vemos!" << endl;
+                continua = false;
+            } 
+            
+            else {
+                cout << "Opción inválida." << endl;
+            }
+        } else {
+            cin.clear();
+
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            cout << "Entrada inválida. Introduce un número del 1 al 4." << endl;
+        }
+    }
 
     return 0;
-
-    /* 
-    Incomplete code
-    */
 }
