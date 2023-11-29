@@ -95,7 +95,13 @@ void Music::new_ranking() {
 }
 
 void Music::create_album(){
+    
     std::vector<Album> lista1, lista2, lista3, lista4, lista5;
+
+    char continuar = 'y';
+
+    while (continuar == 'y' || continuar == 'Y') {
+
     Album album_1;
     album_1.new_album();
     
@@ -131,6 +137,10 @@ void Music::create_album(){
                 std::cout << "Ranking no válido. El álbum no se añadirá a ninguna tier." << std::endl;
         }
 
+        std::cout << "¿Desea ingresar otro álbum? (y/n): ";
+        std::cin >> continuar;
+
+
     std::cout << "---S Tier Ranking 1):---" << std::endl;
     for (const auto& album : lista1) {
         std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
@@ -152,12 +162,15 @@ void Music::create_album(){
         std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
     }
 
-
+    }
 
 }
 
 void Music::create_song(){
     std::vector<Song> lista1, lista2, lista3, lista4, lista5;
+    char continuar = 'y';
+
+    while (continuar == 'y' || continuar == 'Y') {
     Song song_1;
     song_1.new_song();
     
@@ -190,6 +203,9 @@ void Music::create_song(){
             default:
                 std::cout << "Ranking no válido. La canción no se añadirá a ninguna tier." << std::endl;
         }
+        std::cout << "¿Desea ingresar otra canción? (y/n): ";
+        std::cin >> continuar;
+    
 
     std::cout << "---S Tier Ranking 1):---" << std::endl;
     for (const auto& song : lista1) {
@@ -211,14 +227,16 @@ void Music::create_song(){
     for (const auto& song : lista5) {
         std::cout << "Nombre: " << song_1.get_name() << ", Autor: " << song_1.get_author() << std::endl;
     }
-
-
+    }
 
 
 }
 
 void Music::create_artist(){
     std::vector<Artist> lista1, lista2, lista3, lista4, lista5;
+    char continuar = 'y';
+
+    while (continuar == 'y' || continuar == 'Y') {
     Artist artist_1;
     artist_1.new_artist();
     
@@ -254,6 +272,8 @@ void Music::create_artist(){
             default:
                 std::cout << "Ranking no válido. La canción no se añadirá a ninguna tier." << std::endl;
         }
+        std::cout << "¿Desea ingresar otro artista? (y/n): ";
+        std::cin >> continuar;
 
     std::cout << "---S Tier Ranking 1):---" << std::endl;
     for (const auto& artist : lista1) {
@@ -274,6 +294,7 @@ void Music::create_artist(){
     std::cout << "---F Tier - Ranking 5:---" << std::endl;
     for (const auto& artist : lista5) {
         std::cout << "Nombre: " << artist_1.get_name() <<  std::endl;
+    }
     }
 
 
