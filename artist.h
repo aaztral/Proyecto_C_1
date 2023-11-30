@@ -44,19 +44,19 @@ void Artist::new_artist(){
     std::string lan;
 
     cout << "Nombre del Artista: ";
-    cin >> nam;
+    getline(cin >> ws, nam);
     Artist::set_name(nam);
 
     cout << "Año de Nacimiento: ";
     cin >> ye;
     Artist::set_year(ye);
 
-    cout << "Genero del Artista: ";
-    cin >> gen;
+    cout << "Género del Artista (Musical): ";
+    getline(cin >> ws, gen);
     Artist::set_genre(gen);
 
-    cout << "Idioma del Artista.s ";
-    cin >> lan;
+    cout << "Idioma del Artistas: ";
+    getline(cin >> ws, lan);
     Artist::set_language(lan);
 
     cout << "¿Que ranking le das a tu artista?(1-5): ";

@@ -10,6 +10,10 @@
 
 using namespace std;
 
+/*Creamos una clase Music con la que podamos crear tierlist para albumes, canciones o artistas.
+queremos que el numero máximo sea algo como 100, número arbitrario, solo para poner un limite a la cantidad
+de albumes/s/a que podemos introducir.
+*/
 class Music {
     private:
         std::string name;
@@ -35,7 +39,7 @@ class Music {
         void create_album();
         void create_song();
         void create_artist();
-
+// Setters y Getters
 };
 
 std::string Music::get_name() {
@@ -57,6 +61,9 @@ int Music::get_artist_num() {
 void Music::set_name(string nam) {
     name = nam;
 }
+/* Creamos un "Nuevo ranking que abrirá un segundo menú para la opción 1 en el main. 
+Aquí podremos seleccionar si queremos introducir un Alb/Song/Art para rankear.
+*/
 
 void Music::new_ranking() {
     cout << "---------------" << endl;
@@ -94,14 +101,19 @@ void Music::new_ranking() {
     }
 }
 
-void Music::create_album(){
-    
-    std::vector<Album> lista1, lista2, lista3, lista4, lista5;
+/*
+Dependiendo de la opción que escogíeramos se seleccionará un create_album o song o artist.
+Todos hacen esencialmente lo mismo así que explicaré el de álbum.
+*/
 
+void Music::create_album(){
+    // Creamos una seríe de listas, estas listas serán nuestros "Tiers".
+    std::vector<Album> lista1, lista2, lista3, lista4, lista5;
+    // Ciclo while para continuar agregando albumes mientras se desee.
     char continuar = 'y';
 
     while (continuar == 'y' || continuar == 'Y') {
-
+    // Aquí llamamos a la clase album para crear un objeto, y pedimos todas las caracteristicas del album.
     Album album_1;
     album_1.new_album();
     
@@ -114,7 +126,7 @@ void Music::create_album(){
     cout << "Este álbum pertenece al género:  " << album_1.get_genre() << endl;
     cout << " " << endl;
     cout << endl;
-
+    // Este switch es para determinar en que lista (tier) se colocarán dependiendo del rank que el usuario halla dado. 
         int ranking = album_1.get_rank();
 
         switch (ranking) {
@@ -136,35 +148,37 @@ void Music::create_album(){
             default:
                 std::cout << "Ranking no válido. El álbum no se añadirá a ninguna tier." << std::endl;
         }
+        // Si desea continuar introduciendo albumes o no.
+        cout << "¿Desea ingresar otro álbum? (y/n): ";
+        cin >> continuar;
+    }
 
-        std::cout << "¿Desea ingresar otro álbum? (y/n): ";
-        std::cin >> continuar;
-
+    // Estos ciclos for introducen el album dentro de la lista correspondiente con el nombre y el autor en display.
 
     std::cout << "---S Tier Ranking 1):---" << std::endl;
     for (const auto& album : lista1) {
-        std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
+        std::cout << "Nombre: " << album.get_name() << ", Autor: " << album.get_author() << std::endl;
     }
     std::cout << "---A Tier - Ranking 2:---" << std::endl;
     for (const auto& album : lista2) {
-        std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
+        std::cout << "Nombre: " << album.get_name() << ", Autor: " << album.get_author() << std::endl;
     }
     std::cout << "---B Tier - Ranking 3:---" << std::endl;
     for (const auto& album : lista3) {
-        std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
+        std::cout << "Nombre: " << album.get_name() << ", Autor: " << album.get_author() << std::endl;
     }
     std::cout << "---C Tier - Ranking 4:---" << std::endl;
     for (const auto& album : lista4) {
-        std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
+        std::cout << "Nombre: " << album.get_name() << ", Autor: " << album.get_author() << std::endl;
     }
     std::cout << "---F Tier - Ranking 5:---" << std::endl;
     for (const auto& album : lista5) {
-        std::cout << "Nombre: " << album_1.get_name() << ", Autor: " << album_1.get_author() << std::endl;
+        std::cout << "Nombre: " << album.get_name() << ", Autor: " << album.get_author() << std::endl;
     }
 
     }
 
-}
+
 
 void Music::create_song(){
     std::vector<Song> lista1, lista2, lista3, lista4, lista5;
@@ -274,7 +288,7 @@ void Music::create_artist(){
         }
         std::cout << "¿Desea ingresar otro artista? (y/n): ";
         std::cin >> continuar;
-
+    // Para el caso de artista solo usamos el nombre para el display.
     std::cout << "---S Tier Ranking 1):---" << std::endl;
     for (const auto& artist : lista1) {
         std::cout << "Nombre: " << artist_1.get_name() << std::endl;

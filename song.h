@@ -17,7 +17,7 @@ public:
     
     // Obtener las variables
     int get_lenght();
-    std::string get_author();
+    std::string get_author() const;
     
     // Definir las variables
     void set_lenght(int);
@@ -32,7 +32,7 @@ int Song::get_lenght(){
     return lenght;
 }
 
-std::string Song::get_author(){
+std::string Song::get_author() const{
     return author;
 }
 
@@ -56,23 +56,23 @@ void Song::new_song(){
     std::string aut;
 
     cout << "Nombre de la Canción: ";
-    cin >> nam;
+    getline(cin >> ws, nam);
     Song::set_name(nam);
 
     cout << "Año de publicación: ";
     cin >> ye;
     Song::set_year(ye);
 
-    cout << "Genero de la Canción: ";
-    cin >> gen;
+    cout << "Género de la Canción: ";
+    getline(cin >> ws, gen);
     Song::set_genre(gen);
 
     cout << "Duración de la Canción (min): ";
     cin >> len;
     Song::set_lenght(len);
 
-    cout << "Autor de la canción ";
-    cin >> aut;
+    cout << "Autor de la canción: ";
+    getline(cin >> ws, aut);
     Song::set_author(aut);
 
     cout << "¿Que ranking le das a tu canción?(1-5): ";

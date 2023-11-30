@@ -5,7 +5,7 @@
 #define RANKING_H_
 
 using namespace std;
-
+// La clase Rank es la clase padre que le heredara sus caracteristicas a las clases album, song y artist.
 class Rank{
 private:
     std::string name;
@@ -16,19 +16,19 @@ private:
 public: 
     Rank(): name(""), year(0), genre(""), rank(0){};
     Rank(std::string nam, int ye, std::string gen, int ran): name(nam), year(ye), genre(gen), rank(ran){};
-
-    std::string get_name();
+    // Obtener las variables
+    std::string get_name() const;
     int get_year();
     std::string get_genre();
     int get_rank();
-
+    // Definir las variables
     void set_name(std::string);
     void set_year(int);
     void set_genre(std::string);
     void set_rank(int); 
-};
+}; // Setters y getters. 
 
-std::string Rank::get_name(){
+std::string Rank::get_name() const{
     return name;
 }
 

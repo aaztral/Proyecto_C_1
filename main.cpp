@@ -6,6 +6,7 @@
 
 using namespace std;
 
+// Creamos el menú. 
 void menu (){
     cout << "----------------" << endl;
     cout << "Recommend Music." << endl;
@@ -19,12 +20,12 @@ int main(){
     Music music;
     bool continua = true;
     int option;
-
+    // Creamos un valor booleano para el ciclo while que imprimirá el menú y un input de opción hasta que se quiera salir. También llamamos a la clase music.
     while (continua) {
         menu();
-        cout << "Escoge lo que quieres hacer (1 - 4): ";
+        cout << "Escoge lo que quieres hacer (1 / 2): ";
 
-        // Check for valid input
+        // Verificamos que el input sea valido. En caso de que sea 1 creamos un nuevo ranking, si es 2 salimos y se finaliza el código. 
         if (cin >> option) {
             cout << endl;
 
@@ -33,7 +34,7 @@ int main(){
             } 
             else if (option == 2) {
                 cout << "¡Nos vemos!" << endl;
-                continua = false;
+                continua = false; 
             } 
             
             else {
@@ -44,8 +45,8 @@ int main(){
 
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
-            cout << "Entrada inválida. Introduce un número del 1 al 4." << endl;
-        }
+            cout << "Entrada inválida. Introduce un número del 1 al 2." << endl;
+        } // Este código es por si acaso, previene un loop infinito creado por un input invalido.
     }
 
     return 0;
