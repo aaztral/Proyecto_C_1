@@ -2,7 +2,7 @@
 Este es el proyecto de _Armando Fuentes Silva (A01712074)_ para la materia de TC1033 Pensamiento Computacional Orientado a Objetos (Grupo 302.)
 
 ## Contexto
-Este proyecto te dará la opción de ingresar diversos tipos de formatos de música (Álbumes, Artistas, Bandas y Canciones) para rankearlas en una _TierList_ dividia en Tiers (S, A, B, C, D) en orden de que tanto te gustan. Los podrás ordenar para mostrarle tus gustos músicales a tus amigos y recomendarles nueva música que pueda gustarles.
+Este proyecto te dará la opción de ingresar diversos tipos de formatos de música (Álbumes, Artistas o Canciones) para rankearlas en una _TierList_ dividia en Tiers (S, A, B, C, D, F) en orden de que tanto te gustan. Los podrás ordenar para mostrarle tus gustos músicales a tus amigos y recomendarles nueva música que pueda gustarles.
 
 ## Funcionalidad
 
